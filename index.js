@@ -28,7 +28,7 @@ async function getData() {
   const economicalBowlersResult = topEconomicalBowlers(deliveries, matches);
   writeData(writePathTopEconomicalBowlers, economicalBowlersResult);
 }
-getData().catch((err) => console.log(err));
+getData();
 
 
 
