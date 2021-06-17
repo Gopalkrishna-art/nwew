@@ -1,7 +1,7 @@
 
 const topEconomicalBowlers = require('./ipl/topEconomicalBowlers.js');
 const fetchData = require('./ipl/fetchdata.js');
-
+const {matchesFilePath,deliveriesFilePath} = require('./ipl/constants.js');
 let data;
 
 async function receiveData() {
@@ -13,7 +13,7 @@ async function receiveData() {
 test('TopEconomicalBowlers', async() => {
   data= await receiveData();
 
-  expect(topEconomicalBowlers(data)).not.toEqual({
+  expect(topEconomicalBowlers(data)).toEqual({
     
         "RN ten Doeschate": 3.43,
         "J Yadav": 4.14,
@@ -56,3 +56,22 @@ expect(()=>{
 
   
     
+test('TopEconomicalBowlers', async() => {
+  data= await receiveData();
+
+  expect(topEconomicalBowlers(data)).not.toEqual({
+    
+        "RN ten Doeschate": 3.43,
+        "J Yadav": 4.14,
+        "V Kohli": 5.45,
+        "R Ashwin": 5.7,
+        "S Nadeem": 5.86,
+        "MC Henriques": 6.04,
+        "Z Khan": 6.04,
+        "Parvez Rasool": 6.2,
+        "MA Starc": 6.42,
+        "Sandeep Sharma": 6.75
+    
+  });
+});
+
